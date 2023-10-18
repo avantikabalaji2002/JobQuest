@@ -13,13 +13,12 @@ public class CompanyDetails {
         // Default constructor required for Firebase
     }
 
-    public CompanyDetails(String companyName, int yearOfBatch, String role, double ctc, String applyByDate, String type, String status) {
+    public CompanyDetails(String companyName, int yearOfBatch, String role, double ctc, String applyByDate, String status) {
         this.companyName = companyName;
         this.yearOfBatch = yearOfBatch;
         this.role = role;
         this.ctc = ctc;
         this.applyByDate = applyByDate;
-        this.type = type;
         this.status = status;
     }
 
@@ -43,9 +42,6 @@ public class CompanyDetails {
         return applyByDate;
     }
 
-    public String getType() {
-        return type;
-    }
 
     public String getStatus() {
         return status;

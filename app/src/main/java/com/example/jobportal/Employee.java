@@ -39,7 +39,7 @@ public class Employee extends AppCompatActivity {
             String userName = currentUser.getDisplayName();
             String userEmail = currentUser.getEmail();
 
-            //nameTextView.setText(userName);
+            nameTextView.setText(userName);
             emailTextView.setText(userEmail);
         }
         Button logoutButton = findViewById(R.id.buttonLogout);
@@ -58,52 +58,19 @@ public class Employee extends AppCompatActivity {
         myProfileButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String currentUserEmail = currentUser.getEmail(); // Get the current user's email
+                FirebaseUser currentUser = mAuth.getCurrentUser();
+                if (currentUser != null) {
+                    String currentUserEmail = currentUser.getEmail();
 
-                // Initialize Firebase Database reference
-                DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("users");
-
-                // Query the database for the user with matching email
-                databaseReference.orderByChild("email").equalTo(currentUserEmail).addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                            // Retrieve the user data
-                            String fullName = snapshot.child("fullName").getValue(String.class);
-                            String lastName = snapshot.child("lastName").getValue(String.class);
-                            String dob = snapshot.child("dob").getValue(String.class);
-                            String currentSemester = snapshot.child("currentSemester").getValue(String.class);
-                            String cgpa = snapshot.child("cgpa").getValue(String.class);
-                            String passOutYear = snapshot.child("passOutYear").getValue(String.class);
-                            String address = snapshot.child("address").getValue(String.class);
-                            String interest = snapshot.child("interest").getValue(String.class);
-                            String type = snapshot.child("type").getValue(String.class);
-                            String userName = snapshot.child("userName").getValue(String.class);
-
-                            // Start the profile activity and pass user details
-                            Intent intent = new Intent(Employee.this, UserProfileActivity.class);
-                            intent.putExtra("fullName", fullName);
-                            intent.putExtra("lastName", lastName);
-                            intent.putExtra("dob", dob);
-                            intent.putExtra("currentSemester", currentSemester);
-                            intent.putExtra("cgpa", cgpa);
-                            intent.putExtra("passOutYear", passOutYear);
-                            intent.putExtra("address", address);
-                            intent.putExtra("interest", interest);
-                            intent.putExtra("type", type);
-                            intent.putExtra("userName", userName);
-                            intent.putExtra("userEmail", currentUserEmail);
-                            startActivity(intent);
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-                        // Handle the error
-                        //Toast.makeText(Employee.this, "Fail to get data.", Toast.LENGTH_SHORT).show();
-                    }
-                });
+                    Intent intent = new Intent(Employee.this, UserProfileActivity.class);
+                    intent.putExtra("userEmail", currentUserEmail);
+                    startActivity(intent);
+                } else {
+                    // Handle the case where the user is not logged in
+                    // You may want to redirect the user to the login screen
+                }
             }
         });
+
     }
 }

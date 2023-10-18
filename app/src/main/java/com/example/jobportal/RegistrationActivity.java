@@ -161,7 +161,7 @@ public class RegistrationActivity extends AppCompatActivity {
                                     if (task.isSuccessful()) {
                                         // User data saved to Firebase Database
                                         Toast.makeText(RegistrationActivity.this, "Registration successful", Toast.LENGTH_SHORT).show();
-                                        startActivity(new Intent(RegistrationActivity.this, Employee.class));
+                                        startActivity(new Intent(RegistrationActivity.this, Choose.class));
                                         finish();
                                     } else {
                                         // Handle the error

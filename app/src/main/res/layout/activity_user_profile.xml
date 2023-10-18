@@ -6,25 +6,42 @@
     android:orientation="vertical"
     android:padding="16dp"
     android:background="@drawable/bg"
-    android:gravity="center"
     tools:context=".UserProfileActivity">
+
+    <TextView
+        android:id="@+id/myProfile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="10dp"
+        android:background="#cccfce"
+        android:gravity="center"
+        android:padding="8dp"
+        android:text="MY PROFILE"
+        android:textColor="#000000"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
 
     <TextView
         android:id="@+id/profileName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="18sp"
-        android:textStyle="bold"
         android:paddingBottom="8dp"
-        android:text="Avantika" />
+        android:paddingTop="50dp"
+        android:text="Name: Avantika" />
 
     <TextView
         android:id="@+id/profileDOB"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="16sp"
+
         android:paddingBottom="8dp"
-        android:text="18-10-23" />
+        android:text="DOB: 18-01-2002" />
 
     <TextView
         android:id="@+id/profileSemester"
@@ -32,7 +49,7 @@
         android:layout_height="wrap_content"
         android:textSize="16sp"
         android:paddingBottom="8dp"
-        android:text="7" />
+        android:text="Semester: 7" />
 
     <TextView
         android:id="@+id/profileCGPA"
@@ -40,7 +57,7 @@
         android:layout_height="wrap_content"
         android:textSize="16sp"
         android:paddingBottom="8dp"
-        android:text="8" />
+        android:text="CGPA: 8" />
 
     <TextView
         android:id="@+id/profilePassOutYear"
@@ -48,7 +65,7 @@
         android:layout_height="wrap_content"
         android:textSize="16sp"
         android:paddingBottom="8dp"
-        android:text="2024" />
+        android:text="Batch: 2024" />
 
     <TextView
         android:id="@+id/profileAddress"
@@ -56,7 +73,7 @@
         android:layout_height="wrap_content"
         android:textSize="16sp"
         android:paddingBottom="8dp"
-        android:text="Coimbatore" />
+        android:text="Place: Coimbatore" />
 
     <TextView
         android:id="@+id/profileInterest"
@@ -64,7 +81,7 @@
         android:layout_height="wrap_content"
         android:textSize="16sp"
         android:paddingBottom="8dp"
-        android:text="Yes" />
+        android:text="Interested for placement: Yes" />
 
     <TextView
         android:id="@+id/profileType"
@@ -72,7 +89,7 @@
         android:layout_height="wrap_content"
         android:textSize="16sp"
         android:paddingBottom="8dp"
-        android:text="Internship" />
+        android:text="Type: Internship" />
 
     <TextView
         android:id="@+id/profileUsername"
@@ -80,7 +97,7 @@
         android:layout_height="wrap_content"
         android:textSize="16sp"
         android:paddingBottom="8dp"
-        android:text="avantikabalaji" />
+        android:text="Username: avantikabalaji" />
 
     <TextView
         android:id="@+id/profileEmail"
@@ -88,11 +105,12 @@
         android:layout_height="wrap_content"
         android:textSize="16sp"
         android:paddingBottom="8dp"
-        android:text="absample@gmail.com" />
+        android:text="Email: avantikabalaji2002@gmail.com" />
 
     <Button
         android:id="@+id/backToEmployeeButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Back to Main Page" />
+
 </LinearLayout>

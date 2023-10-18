@@ -111,7 +111,7 @@ public class EmployerDetailsActivity extends AppCompatActivity {
         }
 
         // Create a CompanyDetails object to store the data
-        CompanyDetails companyDetails = new CompanyDetails(companyName, yearOfBatch, role, ctc, applyByDate, type, status);
+        CompanyDetails companyDetails = new CompanyDetails(companyName, yearOfBatch, role, ctc, applyByDate, status);
 
         // Push the data to Firebase Database
         String companyId = databaseReference.push().getKey();
@@ -127,6 +127,8 @@ public class EmployerDetailsActivity extends AppCompatActivity {
                             // Data failed to save, handle the error (e.g., show an error message)
                             // Log the error message
                             Toast.makeText(EmployerDetailsActivity.this, "Data not saved", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(EmployerDetailsActivity.this, Choose.class));
+                            finish();
                         }
                     });
     }
